@@ -1,6 +1,5 @@
-from pyscript import display
 import panel as pn
-import numpy as np
+from pyscript import display
 
 pn.extension()
 
@@ -20,9 +19,8 @@ def create_svg_base(width, height):
 @pn.depends(width_slider.param.value, height_slider.param.value)
 def update_drawing_panel(width, height):
     svg_content = create_svg_base(width, height)
-    panel_with = width
-    panel_height = height
-    return pn.pane.HTML(f'<div class="panel">{svg_content}</div>', width=panel_with, height=panel_height)
+    return pn.pane.HTML(f'<div class="panel">{svg_content}</div>', width=width, height=height)
+
 
 # Configurar el sidebar
 sidebar = pn.Column(

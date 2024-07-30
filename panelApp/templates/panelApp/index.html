@@ -33,4 +33,5 @@
 {#Agregar archivos en el body (scripts)#}
 {% block extra_body %}
     <script type="py" src="{% static 'js/main.py' %}" config="{% static 'js/pyscript.toml' %}"></script>
+    <script type="module" src="{% static 'js/panel.js' %}"></script>
 {% endblock %}
