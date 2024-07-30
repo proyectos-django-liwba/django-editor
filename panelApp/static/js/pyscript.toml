@@ -1,0 +1,4 @@
+
+name = "Django Editor"
+description = "An application that uses PyScript"
+packages = ["pandas"]

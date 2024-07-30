@@ -1,0 +1,17 @@
+{% extends '../_base.html' %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h3 class="text-center text-danger p-3">Panel</h3>
+        <div id="pyscript-output"></div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+   <script type="py" output="pyscript-output" src="{% static 'js/main.py' %}" config="{% static 'js/pyscript.toml' %}"></script>
+{% endblock %}
