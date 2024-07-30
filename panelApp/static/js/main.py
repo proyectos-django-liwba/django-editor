@@ -8,13 +8,21 @@ pn.extension()
 width_slider = pn.widgets.IntSlider(name='Width', start=100, end=500, step=10, value=500)
 height_slider = pn.widgets.IntSlider(name='Height', start=100, end=500, step=10, value=500)
 
+# SVG base en blanco
+def create_svg_base(width, height):
+    return f'''
+    <svg id="drawing-svg" width="{width}" height="{height}" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100%" height="{height}" fill="white"/>
+    </svg>
+    '''
 
-# Panel de dibujo
+# Panel de dibujo que se actualiza con los sliders
 @pn.depends(width_slider.param.value, height_slider.param.value)
 def update_drawing_panel(width, height):
-    # Crear el panel de dibujo con el tamaño especificado
-    return pn.pane.HTML(f'<div style="width:{width}px; height:{height}px;" class="panel"></div>')
-
+    svg_content = create_svg_base(width, height)
+    panel_with = width
+    panel_height = height
+    return pn.pane.HTML(f'<div class="panel">{svg_content}</div>', width=panel_with, height=panel_height)
 
 # Configurar el sidebar
 sidebar = pn.Column(
