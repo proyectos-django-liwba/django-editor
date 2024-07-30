@@ -1,16 +1,15 @@
+import panel as pn
 from pyscript import display
-import pandas as pd
+
+display("Hello, World!", target="panel")
+
+pn.extension(sizing_mode="stretch_width")
+
+slider = pn.widgets.FloatSlider(start=0, end=10, name='Amplitude')
 
 
-# Simple mensaje de bienvenida
-display("Hello, PyScript from Django!")
+def callback(new):
+    return f'Amplitude is: {new}'
 
-# Ejemplo con pandas DataFrame
-df = pd.DataFrame({
-    'Column 1': [1, 2, 3],
-    'Column 2': [4, 5, 6]
-})
-display(df)
 
-print(df)
-
+pn.Row(slider, pn.bind(callback, slider)).servable(target='simple_app')

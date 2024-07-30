@@ -36,8 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'draw',
-    'panel',
     'panelApp',
+    'djgentelella',
+    'markitup',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+MARKITUP_FILTER = ('markdown.markdown', {'safe_mode': True})
+MARKITUP_SET = 'markitup/sets/markdown/'
+JQUERY_URL = None

@@ -1,7 +1,7 @@
 {% extends '../_base.html' %}
 {% load static %}
 
-{% block extra_css %}
+{% block extra_head %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock %}
 
@@ -19,6 +19,6 @@
     </footer>
 {% endblock %}
 
-{% block extra_js %}
+{% block extra_body %}
     <script src="{% static 'js/script.js' %}"></script>
 {% endblock %}

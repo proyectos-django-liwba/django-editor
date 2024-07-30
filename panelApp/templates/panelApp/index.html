@@ -1,20 +1,37 @@
 {% extends '../_base.html' %}
 {% load static %}
-{% block extra_css %}
-    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
-    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+{#Agregar archivos en el head//#}
+{% block extra_head %}
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.2.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.2.1/core.js"></script>
+
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.3.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@holoviz/panel@0.14.4/dist/panel.min.js"></script>
+
 {% endblock %}
 
+{#Agregar contenido en el body#}
 {% block content %}
-    <div class="container">
-        <h3 class="text-center text-danger p-3">Panel</h3>
 
-        <div id="pyscript-output" class="p-5"></div>
+    {% include '_partials/_navbarPanel.html' %}
+
+    <section class="container">
+
+        <div id="panel" class="pt-5"></div>
+
+        <div id="simple_app">
+
+        </div>
+    </section>
 
 
-    </div>
 {% endblock %}
 
-{% block extra_js %}
-   <script type="py" output="pyscript-output" src="{% static 'js/main.py' %}" config="{% static 'js/pyscript.toml' %}"></script>
+{#Agregar archivos en el body (scripts)#}
+{% block extra_body %}
+    <script type="py" src="{% static 'js/main.py' %}" config="{% static 'js/pyscript.toml' %}"></script>
 {% endblock %}
