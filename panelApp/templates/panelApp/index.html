@@ -3,7 +3,7 @@
 
 {#Agregar archivos en el head//#}
 {% block extra_head %}
-
+    <link rel="stylesheet" href="{% static 'css/panel.css' %}">
     <link rel="stylesheet" href="https://pyscript.net/releases/2024.2.1/core.css">
     <script type="module" src="https://pyscript.net/releases/2024.2.1/core.js"></script>
 
@@ -23,9 +23,10 @@
 
         <div id="panel" class="pt-5"></div>
 
-        <div id="simple_app">
+        <div id="simple_app"></div>
 
-        </div>
+        <div id="control-panel"></div>
+        <div id="drawing-panel"></div>
     </section>
 
 
