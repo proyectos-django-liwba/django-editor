@@ -5,27 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83030778-4066-4f37-8f2c-c0f7f0da3dbe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/panelApp/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/static/js/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/static/js/pyscript.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/static/js/pyscript.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/templates/panelApp/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoEditor/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoEditor/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoEditor/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoEditor/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panelApp/static/js/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/panelApp/static/js/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panelApp/static/js/pyscript.toml" beforeDir="false" afterPath="$PROJECT_DIR$/panelApp/static/js/pyscript.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panelApp/templates/panelApp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/panelApp/templates/panelApp/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -118,7 +111,7 @@
       <workItem from="1721952028928" duration="15221000" />
       <workItem from="1722261852795" duration="419000" />
       <workItem from="1722264502946" duration="1081000" />
-      <workItem from="1722293394700" duration="6313000" />
+      <workItem from="1722293394700" duration="12212000" />
     </task>
     <servers />
   </component>

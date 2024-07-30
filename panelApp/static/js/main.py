@@ -1,6 +1,7 @@
 from pyscript import display
 import pandas as pd
 
+
 # Simple mensaje de bienvenida
 display("Hello, PyScript from Django!")
 
@@ -10,3 +11,6 @@ df = pd.DataFrame({
     'Column 2': [4, 5, 6]
 })
 display(df)
+
+print(df)
+
