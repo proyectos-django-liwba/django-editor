@@ -2,6 +2,9 @@ import panel as pn
 
 pn.extension()
 
+button = pn.widgets.Button(icon="heart")
+
+
 # Definir sliders para controlar el ancho y la altura
 width_slider = pn.widgets.IntSlider(name='Width', start=100, end=500, step=10, value=500)
 height_slider = pn.widgets.IntSlider(name='Height', start=100, end=500, step=10, value=500)
@@ -118,6 +121,7 @@ sidebar = pn.Column(
     text_input,
     text_size,
     text_color,
+    button,
     css_classes=['sidebar']
 )
 

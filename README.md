@@ -43,9 +43,14 @@
 ```
 # Versiones Compatibles de pyscript con panel
 
+- 2024.7.1
+
+Esta versión se siente mas lenta al cargar la interfaz. Ademas de incorporar una serie 
+de validaciones mas en cuanto a codigo pycript que anteriores versiones
+
 - 2024.2.1
 
-Esta es la version mas rapida que las nuevas. Panel no funciona con las versiones 2023 de pyscript
+Esta es la versión mas rapida que las nuevas. Panel no funciona con las versiones 2023 de pyscript
 
 # Versiones No funcionables en pyscript
 
@@ -65,6 +70,208 @@ es una version utilizable.
 ["Documentación Versiones Kokeh"](https://docs.bokeh.org/en/latest/docs/releases.html)
 
 
+
+
+###  Panel 1.3.8
+
+- head, index.html
+
+```
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.3.3.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.3.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.3.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@holoviz/panel@1.3.8/dist/panel.min.js"></script>
+```
+
+- pyscript.toml
+
+``` 
+    packages = [
+        "https://cdn.holoviz.org/panel/1.3.8/dist/wheels/bokeh-3.3.3-py3-none-any.whl",
+        "https://cdn.holoviz.org/panel/1.3.8/dist/wheels/panel-1.3.8-py3-none-any.whl",
+    ]
+```
+
+###  Panel 1.3.7
+
+- head, index.html
+
+```
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.3.3.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.3.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.3.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@holoviz/panel@1.3.7/dist/panel.min.js"></script>
+```
+
+- pyscript.toml
+
+``` 
+    packages = [
+        "https://cdn.holoviz.org/panel/1.3.7/dist/wheels/bokeh-3.3.3-py3-none-any.whl",
+        "https://cdn.holoviz.org/panel/1.3.7/dist/wheels/panel-1.3.7-py3-none-any.whl",
+    ]
+```
+
+###  Panel 1.3.5
+
+- head, index.html
+
+```
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.3.2.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.3.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.3.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@holoviz/panel@1.3.5/dist/panel.min.js"></script>
+```
+
+- pyscript.toml
+
+``` 
+    packages = [
+        "https://cdn.holoviz.org/panel/1.3.5/dist/wheels/bokeh-3.3.2-py3-none-any.whl",
+        "https://cdn.holoviz.org/panel/1.3.5/dist/wheels/panel-1.3.5-py3-none-any.whl",
+    ]
+```
+
+###  Panel 1.3.4
+
+- head, index.html
+
+```
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.3.1.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@holoviz/panel@1.3.4/dist/panel.min.js"></script>
+```
+
+- pyscript.toml
+
+``` 
+    packages = [
+        "https://cdn.holoviz.org/panel/1.3.4/dist/wheels/bokeh-3.3.1-py3-none-any.whl",
+        "https://cdn.holoviz.org/panel/1.3.4/dist/wheels/panel-1.3.4-py3-none-any.whl",
+    ]
+```
+
+###  Panel 1.3.2
+
+- head, index.html
+
+```
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.3.1.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@holoviz/panel@1.3.2/dist/panel.min.js"></script>
+```
+
+- pyscript.toml
+
+``` 
+    packages = [
+        "https://cdn.holoviz.org/panel/1.3.2/dist/wheels/bokeh-3.3.1-py3-none-any.whl",
+        "https://cdn.holoviz.org/panel/1.3.2/dist/wheels/panel-1.3.2-py3-none-any.whl",
+    ]
+```
+
+###  Panel 1.3.1
+
+- head, index.html
+
+```
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.3.0.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.3.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.3.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@holoviz/panel@1.3.1/dist/panel.min.js"></script>
+```
+
+- pyscript.toml
+
+``` 
+    packages = [
+        "https://cdn.holoviz.org/panel/1.3.1/dist/wheels/bokeh-3.3.0-py3-none-any.whl",
+        "https://cdn.holoviz.org/panel/1.3.1/dist/wheels/panel-1.3.1-py3-none-any.whl",
+    ]
+```
+
+###  Panel 1.3.0
+
+- head, index.html
+
+```
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.3.0.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.3.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.3.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@holoviz/panel@1.3.0/dist/panel.min.js"></script>
+```
+
+- pyscript.toml
+
+``` 
+    packages = [
+        "https://cdn.holoviz.org/panel/1.3.0/dist/wheels/bokeh-3.3.0-py3-none-any.whl",
+        "https://cdn.holoviz.org/panel/1.3.0/dist/wheels/panel-1.3.0-py3-none-any.whl",
+    ]
+```
+
+###  Panel 1.2.3
+
+- head, index.html
+
+```
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.2.2.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.2.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.2.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@holoviz/panel@1.2.3/dist/panel.min.js"></script>
+```
+
+- pyscript.toml
+
+``` 
+    packages = [
+        "https://cdn.holoviz.org/panel/1.2.3/dist/wheels/bokeh-3.2.2-py3-none-any.whl",
+        "https://cdn.holoviz.org/panel/1.2.3/dist/wheels/panel-1.2.3-py3-none-any.whl",
+    ]
+```
+
+###  Panel 1.2.2
+
+- head, index.html
+
+```
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.2.2.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.2.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.2.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@holoviz/panel@1.2.2/dist/panel.min.js"></script>
+```
+
+- pyscript.toml
+
+``` 
+    packages = [
+        "https://cdn.holoviz.org/panel/1.2.2/dist/wheels/bokeh-3.2.2-py3-none-any.whl",
+        "https://cdn.holoviz.org/panel/1.2.2/dist/wheels/panel-1.2.2-py3-none-any.whl",
+    ]
+```
+
+###  Panel 1.2.1
+
+- head, index.html
+
+```
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.2.1.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@holoviz/panel@1.2.1/dist/panel.min.js"></script>
+```
+
+- pyscript.toml
+
+``` 
+    packages = [
+        "https://cdn.holoviz.org/panel/1.2.1/dist/wheels/bokeh-3.2.1-py3-none-any.whl",
+        "https://cdn.holoviz.org/panel/1.2.1/dist/wheels/panel-1.2.1-py3-none-any.whl",
+    ]
+```
+
 ###  Panel 1.2.0
 Esta versión cuando se crean elementos de interfaz, agrega clases y usa solo los div necesarios
 facilitando mas personalizar los elementos. Ademas de ser una versión de panel intermedia. 
@@ -80,7 +287,7 @@ facilitando mas personalizar los elementos. Ademas de ser una versión de panel 
 
 - pyscript.toml
 
-```
+``` 
     packages = [
         "https://cdn.holoviz.org/panel/1.2.0/dist/wheels/bokeh-3.2.0-py3-none-any.whl",
         "https://cdn.holoviz.org/panel/1.2.0/dist/wheels/panel-1.2.0-py3-none-any.whl",
