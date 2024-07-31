@@ -3,7 +3,9 @@
 ### SVG Panel
 
 - ["Documentación"](https://panel.holoviz.org/reference/panes/SVG.html)
-- 
+
+-["Integración con Pyscript"](https://panel.holoviz.org/how_to/wasm/standalone.html)
+
 - ["Configuración"](https://github.com/holoviz/panel/issues/4572)
 
 - ["Panel SVG"](https://panel.holoviz.org/reference/panes/SVG.html)
@@ -13,6 +15,8 @@
 - ["Agregar htlm al SVG"](https://jsfiddle.net/or6yt1L2/)
 
 - ["Propiedades SVG"](https://www.w3schools.com/graphics/svg_text.asp)
+
+- ["Iconos de panel"](https://tabler.io/icons)
 
 ```
     <foreignObject x="0" y="0"  width="{width}" height="{height}">

@@ -1,4 +1,3 @@
-
 function downloadSVG() {
     // Seleccionar el SVG que deseas descargar
     const svgElement = document.querySelector('#drawing-svg');
@@ -30,4 +29,11 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         console.error('No se encontró el botón para descargar el SVG.');
     }
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const loading = document.getElementById('loading');
+    addEventListener('py:ready', () => loading.close());
+    loading.showModal();
 });

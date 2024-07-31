@@ -4,6 +4,7 @@
 {#Agregar archivos en el head//#}
 {% block extra_head %}
     <link rel="stylesheet" href="{% static 'css/panel.css' %}">
+
     <link rel="stylesheet" href="https://pyscript.net/releases/2024.2.1/core.css">
     <script type="module" src="https://pyscript.net/releases/2024.2.1/core.js"></script>
 
@@ -11,13 +12,18 @@
     <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.3.min.js"></script>
     <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.3.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@holoviz/panel@0.14.4/dist/panel.min.js"></script>
-
 {% endblock %}
 
 {#Agregar contenido en el body#}
 {% block content %}
 
     {% include '_partials/_navbarPanel.html' %}
+
+    <dialog id="loading">
+        <div class="content">
+            <h3>Loading...</h3>
+        </div>
+    </dialog>
 
     <section class="container">
 

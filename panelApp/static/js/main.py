@@ -10,9 +10,17 @@ color_picker = pn.widgets.ColorPicker(name='Background color', value='#ffffff', 
 # Campo de entrada para agregar texto al SVG
 text_input = pn.widgets.TextInput(name='Text to Add', value='I love SVG!', max_length=250)
 # Botón para actualizar el SVG con el texto
-text_button = pn.widgets.Button(name='Update SVG', button_type='primary')
+# text_button = pn.widgets.Button(name='Update SVG', button_type='primary')
 text_size = pn.widgets.IntSlider(name='Font size', start=8, end=24, step=1, value=12)
 text_color = pn.widgets.ColorPicker(name='Text color', value='#000000', css_classes=['picker'])
+
+# Nombres de los botones en un arreglo
+button_data = [
+    ["square", "square" ],
+    ["circle", "circle"],
+    ["triangle", "triangle"],
+    ["ellipse", "oval-vertical"],
+]
 
 
 # Función para ajustar el texto en múltiples líneas
@@ -39,7 +47,7 @@ def wrap_text(text, max_width, font_size):
 
 # SVG base en blanco
 def create_svg_base(width, height, color, text, font_size, text_color):
-    #width - 10 es el margen a la derecha
+    # width - 10 es el margen a la derecha
     wrapped_text = wrap_text(text, width - 10, font_size)
     text_elements = ''.join(
         f'<tspan x="5" dy="{font_size + 5}" fill="{text_color}">{line}</tspan>'
@@ -74,13 +82,35 @@ def update_drawing_panel(width, height, color, text, font_size, text_color):
     return pn.pane.HTML(f'<div class="panel">{svg_content}</div>', width=width, height=height)
 
 
-# Función que actualiza el panel al hacer clic en el botón
-def add_text_click(event):
-    update_drawing_panel.param.update()
+# Funciónes de botones
+def rectangle_click(event):
+    print("Botón rectangle presionado")
 
 
-# Agregar funcionalidad al botón
-text_button.on_click(add_text_click)
+def circle_click(event):
+    print("Botón circle presionado")
+
+
+def triangle_click(event):
+    print("Botón triangle presionado")
+
+
+# Crear botones con dimensiones definidas
+buttons = []
+# for name, icon_html in button_data:
+#     button = pn.pane.HTML(f'<button class="btn-figure btn btn-sm btn-primary" style="width:30px; height:30px;" id="{name}">{icon_html}</button>')
+#     buttons.append(button)
+# for name, icon in button_data:
+#     button = pn.widgets.ButtonIcon(icon={icon}, size="1em", description={name})
+#     buttons.append(button)
+v = pn.widgets.Button(name='🌁')
+# Asignar funciones de clic a cada botón
+# buttons[0].on_click(rectangle_click)
+# buttons[1].on_click(circle_click)
+# buttons[2].on_click(triangle_click)
+
+# Crear una caja flexible para los botones
+#box_buttons = pn.FlexBox(*buttons, flex_direction='row', height=50, css_classes=['button-row'])
 
 # Configurar el sidebar
 sidebar = pn.Column(
@@ -90,7 +120,9 @@ sidebar = pn.Column(
     text_input,
     text_size,
     text_color,
-    text_button,
+    v,
+    #box_buttons,
+    # text_button,
     css_classes=['sidebar']
 )
 
