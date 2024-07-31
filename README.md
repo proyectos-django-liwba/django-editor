@@ -41,3 +41,70 @@
 }
 
 ```
+# Versiones Compatibles de pyscript con panel
+
+- 2024.2.1
+
+Esta es la version mas rapida que las nuevas. Panel no funciona con las versiones 2023 de pyscript
+
+# Versiones No funcionables en pyscript
+
+- Panel 1.4.4 & Bokeh 3.4.1
+- Panel 1.4.3 & Bokeh 3.4.1
+- Panel 1.4.2 & Bokeh 3.4.1
+- Panel 1.4.1 & Bokeh 3.4.0
+- Panel 1.4.0 & Bokeh 3.4.0
+
+["Url de pruebas"](https://cdn.holoviz.org/panel/1.4.4/dist/wheels/bokeh-3.4.1-py3-none-any.whl)
+Mediante la url probaremos las versiones compatibles cambiando los numeros de versión. Si se descarga
+es una version utilizable. 
+
+# Versiones funcionables en pyscript
+
+["Documentación Versiones Panel"](https://panel.holoviz.org/about/releases.html)
+["Documentación Versiones Kokeh"](https://docs.bokeh.org/en/latest/docs/releases.html)
+
+
+###  Panel 1.2.0
+Esta versión cuando se crean elementos de interfaz, agrega clases y usa solo los div necesarios
+facilitando mas personalizar los elementos. Ademas de ser una versión de panel intermedia. 
+
+- head, index.html
+
+```
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.2.0.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.2.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.2.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@holoviz/panel@1.2.0/dist/panel.min.js"></script>
+```
+
+- pyscript.toml
+
+```
+    packages = [
+        "https://cdn.holoviz.org/panel/1.2.0/dist/wheels/bokeh-3.2.0-py3-none-any.whl",
+        "https://cdn.holoviz.org/panel/1.2.0/dist/wheels/panel-1.2.0-py3-none-any.whl",
+    ]
+```
+
+###  Panel 0.14.4
+Esta versión cuando se crean elementos de interfaz, agrega css en linea ademas de muchos div que
+dificultan personalizar los elementos. Ademas de ser una versión de panel muy antigua. 
+
+- head, index.html
+
+```
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.3.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@holoviz/panel@0.14.4/dist/panel.min.js"></script>
+```
+
+- pyscript.toml
+
+```
+    #packages = [
+        "https://cdn.holoviz.org/panel/0.14.4/dist/wheels/bokeh-2.4.3-py3-none-any.whl",
+        "https://cdn.holoviz.org/panel/0.14.4/dist/wheels/panel-0.14.4-py3-none-any.whl",
+    ]
+```

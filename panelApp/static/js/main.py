@@ -9,14 +9,14 @@ height_slider = pn.widgets.IntSlider(name='Height', start=100, end=500, step=10,
 color_picker = pn.widgets.ColorPicker(name='Background color', value='#ffffff', css_classes=['picker'])
 # Campo de entrada para agregar texto al SVG
 text_input = pn.widgets.TextInput(name='Text to Add', value='I love SVG!', max_length=250)
+
 # Botón para actualizar el SVG con el texto
-# text_button = pn.widgets.Button(name='Update SVG', button_type='primary')
 text_size = pn.widgets.IntSlider(name='Font size', start=8, end=24, step=1, value=12)
 text_color = pn.widgets.ColorPicker(name='Text color', value='#000000', css_classes=['picker'])
 
 # Nombres de los botones en un arreglo
 button_data = [
-    ["square", "square" ],
+    ["square", "square"],
     ["circle", "circle"],
     ["triangle", "triangle"],
     ["ellipse", "oval-vertical"],
@@ -57,12 +57,12 @@ def create_svg_base(width, height, color, text, font_size, text_color):
     print(text)
 
     return f'''
-    <svg id="drawing-svg" width="{width}" height="{height}" xmlns="http://www.w3.org/2000/svg">
-        <rect width="{width}" height="{height}" fill="{color}"/>
-        <text x="5" y="15" font-size="{font_size}" fill="{text_color}">
-            {text_elements}
-        </text>
-    </svg>
+        <svg id="drawing-svg" width="{width}" height="{height}" xmlns="http://www.w3.org/2000/svg">
+            <rect width="{width}" height="{height}" fill="{color}"/>
+            <text x="5" y="15" font-size="{font_size}" fill="{text_color}">
+                {text_elements}
+            </text>
+        </svg>
     '''
 
 
@@ -76,23 +76,21 @@ def create_svg_base(width, height, color, text, font_size, text_color):
     text_color.param.value,
 )
 def update_drawing_panel(width, height, color, text, font_size, text_color):
-    # Limitar el texto a 300 caracteres
-    text = text[:300]
     svg_content = create_svg_base(width, height, color, text, font_size, text_color)
     return pn.pane.HTML(f'<div class="panel">{svg_content}</div>', width=width, height=height)
 
 
 # Funciónes de botones
-def rectangle_click(event):
-    print("Botón rectangle presionado")
-
-
-def circle_click(event):
-    print("Botón circle presionado")
-
-
-def triangle_click(event):
-    print("Botón triangle presionado")
+# def rectangle_click(event):
+#     print("Botón rectangle presionado")
+#
+#
+# def circle_click(event):
+#     print("Botón circle presionado")
+#
+#
+# def triangle_click(event):
+#     print("Botón triangle presionado")
 
 
 # Crear botones con dimensiones definidas
@@ -103,7 +101,7 @@ buttons = []
 # for name, icon in button_data:
 #     button = pn.widgets.ButtonIcon(icon={icon}, size="1em", description={name})
 #     buttons.append(button)
-v = pn.widgets.Button(name='🌁')
+
 # Asignar funciones de clic a cada botón
 # buttons[0].on_click(rectangle_click)
 # buttons[1].on_click(circle_click)
@@ -120,9 +118,6 @@ sidebar = pn.Column(
     text_input,
     text_size,
     text_color,
-    v,
-    #box_buttons,
-    # text_button,
     css_classes=['sidebar']
 )
 
