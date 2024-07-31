@@ -4,7 +4,7 @@
 
 - ["Documentación"](https://panel.holoviz.org/reference/panes/SVG.html)
 
--["Integración con Pyscript"](https://panel.holoviz.org/how_to/wasm/standalone.html)
+- ["Integración con Pyscript"](https://panel.holoviz.org/how_to/wasm/standalone.html)
 
 - ["Configuración"](https://github.com/holoviz/panel/issues/4572)
 
@@ -18,6 +18,18 @@
 
 - ["Iconos de panel"](https://tabler.io/icons)
 
+- ["Información de atributos de widgets 1.3.8"](https://github.com/holoviz/panel/tree/v1.3.8/panel/widgets)
+
+- ["Información de Componentes 1.4.4"](https://panel.holoviz.org/reference/index.html#component-gallery)
+
+- ["Estilos panel"](https://panel.holoviz.org/explanation/styling/design.html)
+
+- ["Panel templates"](https://panel.holoviz.org/reference/templates/Bootstrap.html)
+
+
+
+
+### Agregar Elemntos de html a SVG
 ```
     <foreignObject x="0" y="0"  width="{width}" height="{height}">
         <body xmlns="http://www.w3.org/1999/xhtml">
@@ -41,7 +53,7 @@
 }
 
 ```
-# Versiones Compatibles de pyscript con panel
+# Versiones Compatibles de PyScript con Panel
 
 - 2024.7.1
 
@@ -52,7 +64,7 @@ de validaciones mas en cuanto a codigo pycript que anteriores versiones
 
 Esta es la versión mas rapida que las nuevas. Panel no funciona con las versiones 2023 de pyscript
 
-# Versiones No funcionables en pyscript
+# Versiones No funcionables en PyScript
 
 - Panel 1.4.4 & Bokeh 3.4.1
 - Panel 1.4.3 & Bokeh 3.4.1
@@ -68,8 +80,6 @@ es una version utilizable.
 
 ["Documentación Versiones Panel"](https://panel.holoviz.org/about/releases.html)
 ["Documentación Versiones Kokeh"](https://docs.bokeh.org/en/latest/docs/releases.html)
-
-
 
 
 ###  Panel 1.3.8
