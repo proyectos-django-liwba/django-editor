@@ -27,6 +27,16 @@ styles_sidebar = {
     "box-sizing": "border-box"
 }
 
+
+# Nombres de los botones figuras
+button_data = [
+    ["square", "square"],
+    ["circle", "circle"],
+    ["triangle", "triangle"],
+    ["ellipse", "oval-vertical"],
+]
+
+
 # ========================================================================================
 # Elementos de contenido
 # ========================================================================================
@@ -119,16 +129,11 @@ def get_svg_download():
     return sio
 
 
-def get_svg_download2(event):
-    print(svg_content)
-    sio = StringIO()
-    sio.write(svg_content)
-    sio.seek(0)
-
-
 # ========================================================================================
 # Configuraciones elementos de interfaz
 # ========================================================================================
+
+# Boton de descarga del SVG
 download_svg = pn.widgets.FileDownload(
     callback=get_svg_download,
     icon='download',
@@ -136,20 +141,40 @@ download_svg = pn.widgets.FileDownload(
     button_type='success',
     embed=False, auto=True)
 
-
-# Configurar el sidebar
-sidebar = pn.Column(
+# Tab con las configuraciones del panel
+settings_tab = pn.Column(
     width_slider,
     height_slider,
     color_picker,
+    download_svg,
+    name='Setting'
+)
+
+# Tab con las configuraciones del texto
+text_tab = pn.Column(
     text_input,
     text_size,
     text_color_picker,
-    download_svg,
-    styles=styles_sidebar,
+    name='Text'
 )
 
+# Tab con las configuraciones de las figuras
+figures_tab = pn.Column(name='Figure')
+
+# Tab con las configuraciones de los pictogramas
+pictogram_tab = pn.Column(name='Pictogram')
+
+# Panel principal con el SVG
 panel = pn.Column(create_panel, styles=styles_panel)
+
+# Panel con la barra lateral "Sidebar contiene los tabs"
+sidebar = pn.Tabs(
+    settings_tab,
+    text_tab,
+    figures_tab,
+    pictogram_tab,
+    styles=styles_sidebar,
+)
 
 # ========================================================================================
 # Cargar el contenido en el HTML

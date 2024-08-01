@@ -328,6 +328,18 @@ dificultan personalizar los elementos. Ademas de ser una versión de panel muy a
     ]
 ```
 
+### Elementos utilizados en Editor
+
+- ["Iconos"](https://tabler.io/icons)
+- ["Tabs"](https://panel.holoviz.org/reference/layouts/Tabs.html)
+- ["FileDownload"](https://panel.holoviz.org/reference/widgets/FileDownload.html)
+- ["Pane SVG"](https://panel.holoviz.org/reference/panes/SVG.html)
+- ["ColorPicker"](https://panel.holoviz.org/reference/widgets/ColorPicker.html)
+- ["IntSlider"](https://panel.holoviz.org/reference/widgets/IntSlider.html)
+- ["TextInput"](https://panel.holoviz.org/reference/widgets/TextInput.html)
+- ["Row"](https://panel.holoviz.org/reference/layouts/Row.html)
+- ["Column"](https://panel.holoviz.org/reference/layouts/Column.html)
+- ["Pane HTML"](https://panel.holoviz.org/reference/panes/HTML.html)
 
 
 ```
