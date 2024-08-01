@@ -1,30 +1,54 @@
+from io import StringIO
+
 import panel as pn
 
 pn.extension()
 
-button = pn.widgets.Button(icon="heart")
+# ========================================================================================
+# Estilos elementos de interfaz
+# ========================================================================================
+styles_panel = {
+    "border": "1px solid  #a6acaf",
+    "background": "#f2f3f4",
+    "border-radius": "5px",
+    "box-shadow": "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+    "display": "flex",
+    "justify-content": "center",
+    "align-self": "center",
+    "box-sizing": "border-box"
+}
 
+styles_sidebar = {
+    "background-color": "#f0f0f0",
+    "padding": "10px",
+    "border-radius": "8px",
+    "max-width": "300px",
+    "box-shadow": "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+    "box-sizing": "border-box"
+}
+
+# ========================================================================================
+# Elementos de contenido
+# ========================================================================================
 
 # Definir sliders para controlar el ancho y la altura
-width_slider = pn.widgets.IntSlider(name='Width', start=100, end=500, step=10, value=500)
-height_slider = pn.widgets.IntSlider(name='Height', start=100, end=500, step=10, value=500)
+width_slider = pn.widgets.IntSlider(name='Width', start=100, end=500, step=10, value=500, width=240)
+height_slider = pn.widgets.IntSlider(name='Height', start=100, end=500, step=10, value=500, width=240)
 # Selección de color de fondo
-color_picker = pn.widgets.ColorPicker(name='Background color', value='#ffffff', css_classes=['picker'])
+color_picker = pn.widgets.ColorPicker(name='Background color', value='#ffffff')
 # Campo de entrada para agregar texto al SVG
-text_input = pn.widgets.TextInput(name='Text to Add', value='I love SVG!', max_length=250)
-
+text_input = pn.widgets.TextInput(name='Text to Add', value='I love SVG!', max_length=250, width=240)
 # Botón para actualizar el SVG con el texto
-text_size = pn.widgets.IntSlider(name='Font size', start=8, end=24, step=1, value=12)
-text_color = pn.widgets.ColorPicker(name='Text color', value='#000000', css_classes=['picker'])
+text_size = pn.widgets.IntSlider(name='Font size', start=8, end=24, step=1, value=12, width=240)
+text_color_picker = pn.widgets.ColorPicker(name='Text color', value='#000000')
 
-# Nombres de los botones en un arreglo
-button_data = [
-    ["square", "square"],
-    ["circle", "circle"],
-    ["triangle", "triangle"],
-    ["ellipse", "oval-vertical"],
-]
+# Variable para almacenar el contenido SVG
+svg_content = ""
 
+
+# ========================================================================================
+# Funciones
+# ========================================================================================
 
 # Función para ajustar el texto en múltiples líneas
 def wrap_text(text, max_width, font_size):
@@ -57,61 +81,61 @@ def create_svg_base(width, height, color, text, font_size, text_color):
         if i != 0 else f'<tspan x="5" dy="0" fill="{text_color}">{line}</tspan>'
         for i, line in enumerate(wrapped_text)
     )
-    print(text)
+    # print(text)
 
-    return f'''
-        <svg id="drawing-svg" width="{width}" height="{height}" xmlns="http://www.w3.org/2000/svg">
-            <rect width="{width}" height="{height}" fill="{color}"/>
-            <text x="5" y="15" font-size="{font_size}" fill="{text_color}">
-                {text_elements}
-            </text>
-        </svg>
-    '''
+    return f'''<svg id="drawing-svg" width="{width}" height="{height}" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="{width}" height="{height}" fill="{color}"/>
+                    <text x="5" y="15" font-size="{font_size}" fill="{text_color}">
+                        {text_elements}
+                    </text>
+                </svg>'''
 
 
-# Panel de dibujo que se actualiza con los sliders
 @pn.depends(
     width_slider.param.value,
     height_slider.param.value,
     color_picker.param.value,
     text_input.param.value,
     text_size.param.value,
-    text_color.param.value,
+    text_color_picker.param.value,
 )
-def update_drawing_panel(width, height, color, text, font_size, text_color):
+def create_panel(width, height, color, text, font_size, text_color):
+    global svg_content
     svg_content = create_svg_base(width, height, color, text, font_size, text_color)
-    return pn.pane.HTML(f'<div class="panel">{svg_content}</div>', width=width, height=height)
+    return pn.pane.SVG(
+        svg_content,
+        width=width,
+        height=height,
+    )
 
 
-# Funciónes de botones
-# def rectangle_click(event):
-#     print("Botón rectangle presionado")
-#
-#
-# def circle_click(event):
-#     print("Botón circle presionado")
-#
-#
-# def triangle_click(event):
-#     print("Botón triangle presionado")
+# Función para descargar el SVG
+
+def get_svg_download():
+    global svg_content
+    sio = StringIO()
+    sio.write(svg_content)
+    sio.seek(0)
+    return sio
 
 
-# Crear botones con dimensiones definidas
-buttons = []
-# for name, icon_html in button_data:
-#     button = pn.pane.HTML(f'<button class="btn-figure btn btn-sm btn-primary" style="width:30px; height:30px;" id="{name}">{icon_html}</button>')
-#     buttons.append(button)
-# for name, icon in button_data:
-#     button = pn.widgets.ButtonIcon(icon={icon}, size="1em", description={name})
-#     buttons.append(button)
+def get_svg_download2(event):
+    print(svg_content)
+    sio = StringIO()
+    sio.write(svg_content)
+    sio.seek(0)
 
-# Asignar funciones de clic a cada botón
-# buttons[0].on_click(rectangle_click)
-# buttons[1].on_click(circle_click)
-# buttons[2].on_click(triangle_click)
 
-# Crear una caja flexible para los botones
-#box_buttons = pn.FlexBox(*buttons, flex_direction='row', height=50, css_classes=['button-row'])
+# ========================================================================================
+# Configuraciones elementos de interfaz
+# ========================================================================================
+download_svg = pn.widgets.FileDownload(
+    callback=get_svg_download,
+    icon='download',
+    filename='Design.svg',
+    button_type='success',
+    embed=False, auto=True)
+
 
 # Configurar el sidebar
 sidebar = pn.Column(
@@ -120,16 +144,16 @@ sidebar = pn.Column(
     color_picker,
     text_input,
     text_size,
-    text_color,
-    button,
-    css_classes=['sidebar']
+    text_color_picker,
+    download_svg,
+    styles=styles_sidebar,
 )
 
-# Configurar layout principal
-layout = pn.Row(
-    sidebar,
-    update_drawing_panel
-)
+panel = pn.Column(create_panel, styles=styles_panel)
 
-# Servir el layout
-layout.servable(target='control-panel')
+# ========================================================================================
+# Cargar el contenido en el HTML
+# ========================================================================================
+
+sidebar.servable(target='sidebar-panel')
+panel.servable(target='drawing-panel')

@@ -1,6 +1,6 @@
 function downloadSVG() {
     // Seleccionar el SVG que deseas descargar
-    const svgElement = document.querySelector('#drawing-svg');
+    const svgElement = document.getElementById('drawing-svg');
 
     if (svgElement) {
         // Convertir el SVG a una cadena de texto
