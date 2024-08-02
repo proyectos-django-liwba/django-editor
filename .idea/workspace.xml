@@ -5,9 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83030778-4066-4f37-8f2c-c0f7f0da3dbe" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/panelApp/static/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/core/FigureCircle.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/core/FigureEllipse.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/core/FigureFactory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/core/FigureInterface.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/core/FigureRect.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/core/FigureTriangle.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/core/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/core/figures.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/figures.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panelApp/static/js/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/panelApp/static/js/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panelApp/static/js/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/panelApp/static/pyscript/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panelApp/static/js/pyscript.json" beforeDir="false" afterPath="$PROJECT_DIR$/panelApp/static/pyscript/pyscript.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panelApp/static/js/pyscript.toml" beforeDir="false" afterPath="$PROJECT_DIR$/panelApp/static/pyscript/pyscript.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panelApp/templates/panelApp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/panelApp/templates/panelApp/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +29,13 @@
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
     <envs>
@@ -64,7 +84,7 @@
     &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
     &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
     &quot;git-widget-placeholder&quot;: &quot;svg-panel&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/liwbh/Documentos/GitHub/djangoEditor/templates/_partials&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/liwbh/Documentos/GitHub/djangoEditor/panelApp/static/pyscript/core&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -77,7 +97,13 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/panelApp/static/pyscript/core" />
+      <recent name="$PROJECT_DIR$/panelApp/pyscript" />
       <recent name="$PROJECT_DIR$/templates/_partials" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/panelApp/static/pyscript" />
+      <recent name="$PROJECT_DIR$/panelApp/static" />
     </key>
   </component>
   <component name="RunManager">
@@ -130,7 +156,10 @@
       <workItem from="1722293394700" duration="14278000" />
       <workItem from="1722347318217" duration="47710000" />
       <workItem from="1722434046589" duration="51784000" />
-      <workItem from="1722518095112" duration="26741000" />
+      <workItem from="1722518095112" duration="35971000" />
+      <workItem from="1722566034824" duration="4780000" />
+      <workItem from="1722636627120" duration="297000" />
+      <workItem from="1722637698359" duration="4796000" />
     </task>
     <servers />
   </component>
