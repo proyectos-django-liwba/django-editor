@@ -37,3 +37,4 @@ document.addEventListener('DOMContentLoaded', function () {
     addEventListener('py:ready', () => loading.close());
     loading.showModal();
 });
+

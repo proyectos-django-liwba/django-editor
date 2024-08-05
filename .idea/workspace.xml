@@ -5,22 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83030778-4066-4f37-8f2c-c0f7f0da3dbe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/panelApp/static/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/core/FigureCircle.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/core/FigureEllipse.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/core/FigureFactory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/core/FigureInterface.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/core/FigureRect.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/core/FigureTriangle.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/core/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/core/figures.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panelApp/static/pyscript/figures.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panelApp/static/js/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/panelApp/static/pyscript/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panelApp/static/js/pyscript.json" beforeDir="false" afterPath="$PROJECT_DIR$/panelApp/static/pyscript/pyscript.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panelApp/static/js/pyscript.toml" beforeDir="false" afterPath="$PROJECT_DIR$/panelApp/static/pyscript/pyscript.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panelApp/templates/panelApp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/panelApp/templates/panelApp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panelApp/static/js/panel.js" beforeDir="false" afterPath="$PROJECT_DIR$/panelApp/static/js/panel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panelApp/static/pyscript/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/panelApp/static/pyscript/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +146,8 @@
       <workItem from="1722518095112" duration="35971000" />
       <workItem from="1722566034824" duration="4780000" />
       <workItem from="1722636627120" duration="297000" />
-      <workItem from="1722637698359" duration="4796000" />
+      <workItem from="1722637698359" duration="4918000" />
+      <workItem from="1722866680505" duration="8110000" />
     </task>
     <servers />
   </component>

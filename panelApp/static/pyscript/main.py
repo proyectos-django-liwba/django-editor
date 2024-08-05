@@ -3,6 +3,7 @@
 # ...................................................................
 from abc import ABC, abstractmethod
 
+
 class FigureFactory:
     @staticmethod
     def create_element(element_type, *args, **kwargs):
@@ -19,6 +20,9 @@ class FigureFactory:
 
 
 class FigureInterface(ABC):
+    def __init__(self):
+        self.selected = False
+
     @abstractmethod
     def update(self, **kwargs):
         pass
@@ -27,9 +31,18 @@ class FigureInterface(ABC):
     def get_svg(self):
         pass
 
+    def toggle_selection(self):
+        self.selected = not self.selected
+
+    def get_selection_style(self):
+        return 'stroke="blue" stroke-width="5"' if self.selected else ''
+
 
 class FigureRect(FigureInterface):
-    def __init__(self, width=150, height=150, x=10, y=10, rx=20, ry=20, fill='red', stroke='green', stroke_width=3, opacity=0.5):
+    def __init__(self, id="f_", width=100, height=100, x=10, y=10, rx=0, ry=0, fill='none', stroke='black',
+                 stroke_width=1, opacity=1):
+        super().__init__()
+        self.id = id
         self.width = width
         self.height = height
         self.x = x
@@ -47,11 +60,13 @@ class FigureRect(FigureInterface):
                 setattr(self, key, value)
 
     def get_svg(self):
-        return f'<rect width="{self.width}" height="{self.height}" x="{self.x}" y="{self.y}" rx="{self.rx}" ry="{self.ry}" fill="{self.fill}" stroke="{self.stroke}" stroke-width="{self.stroke_width}" opacity="{self.opacity}" />'
+        return f'<rect id="{self.id}" width="{self.width}" height="{self.height}" x="{self.x}" y="{self.y}" rx="{self.rx}" ry="{self.ry}" fill="{self.fill}" stroke="{self.stroke}" stroke-width="{self.stroke_width}" opacity="{self.opacity}" />'
 
 
 class FigureCircle(FigureInterface):
-    def __init__(self, r=45, cx=50, cy=50, fill='red', stroke='green', stroke_width=3, opacity=0.5):
+    def __init__(self, id="f_", r=45, cx=50, cy=50, fill='none', stroke='black', stroke_width=1, opacity=1):
+        super().__init__()
+        self.id = id
         self.r = r
         self.cx = cx
         self.cy = cy
@@ -66,11 +81,13 @@ class FigureCircle(FigureInterface):
                 setattr(self, key, value)
 
     def get_svg(self):
-        return f'<circle r="{self.r}" cx="{self.cx}" cy="{self.cy}" fill="{self.fill}" stroke="{self.stroke}" stroke-width="{self.stroke_width}" opacity="{self.opacity}" />'
+        return f'<circle id="{self.id}" r="{self.r}" cx="{self.cx}" cy="{self.cy}" fill="{self.fill}" stroke="{self.stroke}" stroke-width="{self.stroke_width}" opacity="{self.opacity}" />'
 
 
 class FigureTriangle(FigureInterface):
-    def __init__(self, points="100,10 150,190 50,190", fill='red', stroke='green', stroke_width=3, opacity=0.5):
+    def __init__(self, id="f_", points="100,10 150,100 50,100", fill='none', stroke='black', stroke_width=1, opacity=1):
+        super().__init__()
+        self.id = id
         self.points = points
         self.fill = fill
         self.stroke = stroke
@@ -83,11 +100,13 @@ class FigureTriangle(FigureInterface):
                 setattr(self, key, value)
 
     def get_svg(self):
-        return f'<polygon points="{self.points}" fill="{self.fill}" stroke="{self.stroke}" stroke-width="{self.stroke_width}" opacity="{self.opacity}" />'
+        return f'<polygon id="{self.id}" points="{self.points}" fill="{self.fill}" stroke="{self.stroke}" stroke-width="{self.stroke_width}" opacity="{self.opacity}" />'
 
 
 class FigureEllipse(FigureInterface):
-    def __init__(self, rx=100, ry=50, cx=120, cy=80, fill='red', stroke='green', stroke_width=3, opacity=0.5):
+    def __init__(self, id="f_", rx=60, ry=30, cx=100, cy=50, fill='none', stroke='black', stroke_width=1, opacity=1):
+        super().__init__()
+        self.id = id
         self.rx = rx
         self.ry = ry
         self.cx = cx
@@ -103,12 +122,15 @@ class FigureEllipse(FigureInterface):
                 setattr(self, key, value)
 
     def get_svg(self):
-        return f'<ellipse rx="{self.rx}" ry="{self.ry}" cx="{self.cx}" cy="{self.cy}" fill="{self.fill}" stroke="{self.stroke}" stroke-width="{self.stroke_width}" opacity="{self.opacity}" />'
+        return f'<ellipse id="{self.id}" rx="{self.rx}" ry="{self.ry}" cx="{self.cx}" cy="{self.cy}" fill="{self.fill}" stroke="{self.stroke}" stroke-width="{self.stroke_width}" opacity="{self.opacity}" />'
+
 
 # ...................................................................
 # Clase para controlar los parámetros adicionales del SVG
 # ...................................................................
 import param
+
+
 class SVGParams(param.Parameterized):
     additional_shapes = param.List(default=[], item_type=FigureInterface)
 
@@ -119,10 +141,10 @@ class SVGParams(param.Parameterized):
 
 from io import StringIO
 import panel as pn
+from js import document, console
 
-
-#from figures import FigureFactory
-#from figures import FigureFactory
+# from figures import FigureFactory
+# from figures import FigureFactory
 # Factories para crear figuras
 
 
@@ -163,7 +185,6 @@ styles_sidebar = {
     "box-sizing": "border-box"
 }
 
-
 # Nombres de los botones figuras
 button_data = [
     ["square", "square"],
@@ -171,13 +192,6 @@ button_data = [
     ["triangle", "triangle"],
     ["ellipse", "oval-vertical"],
 ]
-
-# additional_shapes = [
-#     '<rect width="150" height="150" x="10" y="10" rx="20" ry="20" fill="red" stroke="green" stroke-width="3" opacity="0.5" />',
-#     '<circle r="45" cx="50" cy="50" fill="red" stroke="green" stroke-width="3" opacity="0.5" />',
-#     '<polygon points="100,10 150,190 50,190" fill="red" stroke="green" stroke-width="3" opacity="0.5" />',
-#     '<ellipse  rx="100" ry="50" cx="120" cy="80" fill="red" stroke="green" stroke-width="3" opacity="0.5" />'
-# ]
 
 # ========================================================================================
 # Elementos de contenido
@@ -203,6 +217,7 @@ svg_content = ""
 
 # Elementos adicionales del SVG
 svg_params = SVGParams()
+
 
 # ========================================================================================
 # Funciones
@@ -231,7 +246,7 @@ def wrap_text(text, max_width, font_size):
 
 
 # SVG base en blanco
-def create_svg_base(width, height, color, text, font_size, text_color, shape):
+def create_svg_base(width, height, color, text, font_size, text_color, shapes):
     # width - 10 es el margen a la derecha
     wrapped_text = wrap_text(text, width - 10, font_size)
     text_elements = ''.join(
@@ -242,10 +257,10 @@ def create_svg_base(width, height, color, text, font_size, text_color, shape):
 
     # Crear un string con las figuras adicionales
     figures_svg = ""
-    for figure in shape:
+    for figure in shapes:
         figures_svg += figure.get_svg() + "\n"
 
-    print(figures_svg)
+    # print(figures_svg)
 
     return f'''<svg id="drawing-svg" width="{width}" height="{height}" xmlns="http://www.w3.org/2000/svg">
                     <rect width="{width}" height="{height}" fill="{color}"/>
@@ -254,6 +269,7 @@ def create_svg_base(width, height, color, text, font_size, text_color, shape):
                     </text>
                     {figures_svg}
                 </svg>'''
+
 
 # Funcion que crea el panel y actualiza el SVG
 @pn.depends(
@@ -265,9 +281,9 @@ def create_svg_base(width, height, color, text, font_size, text_color, shape):
     text_color_picker.param.value,
     svg_params.param.additional_shapes
 )
-def create_panel(width, height, color, text, font_size, text_color, shape):
+def create_panel(width, height, color, text, font_size, text_color, shapes):
     global svg_content
-    svg_content = create_svg_base(width, height, color, text, font_size, text_color, shape)
+    svg_content = create_svg_base(width, height, color, text, font_size, text_color, shapes)
     return pn.pane.SVG(
         svg_content,
         width=width,
@@ -283,23 +299,31 @@ def get_svg_download():
     sio.seek(0)
     return sio
 
+
 # Función para agregar figuras al SVG
 def add_figure(event):
     button = event.obj
     factory = FigureFactory()
+    type_figure = ""
+
 
     # Crear la figura según el botón pulsado
     if button.icon == "square":
-        figure = factory.create_element('rect')
+        type_figure = 'rect'
     elif button.icon == "circle":
-        figure = factory.create_element('circle')
+        type_figure = 'circle'
     elif button.icon == "triangle":
-        figure = factory.create_element('triangle')
+        type_figure = 'triangle'
     elif button.icon == "oval-vertical":
-        figure = factory.create_element('ellipse')
+        type_figure = 'ellipse'
     else:
         return
 
+
+    id_figure = f'f_{len(svg_params.additional_shapes)}'
+    figure = factory.create_element(type_figure, id=id_figure)
+    print(id_figure)
+    print(figure.get_svg())
     # Agregar la figura a la lista y forzar actualización del parámetro
     svg_params.additional_shapes.append(figure)
     svg_params.param.trigger('additional_shapes')
@@ -321,13 +345,31 @@ def create_button_panel(buttons):
     return pn.Row(*button_widgets)
 
 
-
-
-
-
 # ========================================================================================
 # Configuraciones elementos de interfaz
 # ========================================================================================
+
+# pruebas______________________________
+
+def select_svg_element_by_id(element_id):
+    try:
+        element = document.getElementById(element_id)
+        if element is not None:
+            console.log(f"Element with id {element_id} selected.")
+        else:
+            console.error(f"No element found with id {element_id}.")
+    except Exception as e:
+        console.error(f"Error selecting element: {e}")
+
+select_button = pn.widgets.Button(name='Select SVG Element', button_type='primary')
+def on_select_click(event):
+    #select_svg_element_by_id("app")
+    select_svg_element_by_id("app")
+
+select_button.on_click(on_select_click)
+
+# pruebas______________________________
+
 
 # Boton de descarga del SVG
 download_svg = pn.widgets.FileDownload(
@@ -356,7 +398,8 @@ text_tab = pn.Column(
 
 # Tab con las configuraciones de las figuras
 figures_tab = pn.Column(
-create_button_panel(button_data),
+    create_button_panel(button_data),
+    select_button, # prueba
     name='Figure')
 
 # Tab con las configuraciones de los pictogramas
@@ -380,5 +423,3 @@ sidebar = pn.Tabs(
 
 sidebar.servable(target='sidebar-panel')
 panel.servable(target='drawing-panel')
-
-
