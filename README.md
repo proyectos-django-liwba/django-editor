@@ -341,10 +341,28 @@ dificultan personalizar los elementos. Ademas de ser una versión de panel muy a
 - ["Column"](https://panel.holoviz.org/reference/layouts/Column.html)
 - ["Pane HTML"](https://panel.holoviz.org/reference/panes/HTML.html)
 
-
 ```
     <polygon points="100,10 150,190 50,190" fill="red" stroke="green" stroke-width="3" opacity="0.5" />
     <rect width="150" height="150" x="10" y="10" rx="20" ry="20" fill="red" stroke="green" stroke-width="3" opacity="0.5" />
     <circle r="45" cx="50" cy="50" fill="red" stroke="green" stroke-width="3" opacity="0.5" />
     <ellipse  rx="100" ry="50" cx="120" cy="80" fill="red" stroke="green" stroke-width="3" opacity="0.5" />
+    
+    
+    def select_svg_element_by_id(element_id):
+    try:
+        element = document.getElementById(element_id)
+        if element is not None:
+            console.log(f"Element with id {element_id} selected.")
+        else:
+            console.error(f"No element found with id {element_id}.")
+    except Exception as e:
+        console.error(f"Error selecting element: {e}")
+
+select_button = pn.widgets.Button(name='Select SVG Element', button_type='primary')
+def on_select_click(event):
+    #select_svg_element_by_id("app")
+    #select_svg_element_by_id("f_0")
+    select_svg_element_by_id("f_0")
+
+select_button.on_click(on_select_click)
 ```

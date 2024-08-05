@@ -1,45 +1,29 @@
 from io import StringIO
 import panel as pn
-#import figures
-#from figures import FigureFactory, FigureInterface
+import figures
 from js import document, console, window
 import param
 
-
-hola()
 # ...................................................................
 # Clase para controlar los parámetros adicionales del SVG
 # ...................................................................
 #import param
 class SVGParams(param.Parameterized):
     additional_shapes = param.List(default=[], item_type=figures.FigureInterface)
+    current_shape = param.ObjectSelector(default=None, objects=[])
 
+    def update_current_shape(self, shape_id):
+        print(f'Updating current shape to {shape_id}')
+        shape = next((shape for shape in self.additional_shapes if shape.id == shape_id), None)
+
+        if shape:
+            self.current_shape = shape
+            self.param.current_shape.objects = self.additional_shapes
+            print(f'Current shape: {self.current_shape.get_svg()}')
 
 # ========================================================================================
 # Main
 # ========================================================================================
-
-# from io import StringIO
-# import panel as pn
-# from figures import FigureFactory, FigureInterface
-# from js import document, console, window
-
-# from figures import FigureFactory
-# from figures import FigureFactory
-# Factories para crear figuras
-
-
-# Crear un rectángulo con valores por defecto
-# rect = factory.create_element('rect')
-# print(rect.get_svg())
-
-# Crear un círculo con valores por defecto
-# circle = factory.create_element('circle')
-# print(circle.get_svg())
-
-# Crear un triángulo con valores por defecto
-# triangle = factory.create_element('triangle')
-# print(triangle.get_svg())
 
 pn.extension()
 
@@ -66,8 +50,6 @@ styles_sidebar = {
     "box-sizing": "border-box"
 }
 
-styles_x = dict(padding="10px", margin="0 10px", width="20px")
-
 # Nombres de los botones figuras
 button_data = [
     ["square", "square"],
@@ -75,6 +57,8 @@ button_data = [
     ["triangle", "triangle"],
     ["ellipse", "oval-vertical"],
 ]
+
+# Nota opcion para selecionar una figura, crear un boton
 
 # ========================================================================================
 # Elementos de contenido
@@ -101,7 +85,6 @@ svg_content = ""
 # Elementos adicionales del SVG
 svg_params = SVGParams()
 
-
 # ========================================================================================
 # Funciones
 # ========================================================================================
@@ -126,7 +109,6 @@ def wrap_text(text, max_width, font_size):
         lines.append(current_line)
 
     return lines
-
 
 # SVG base en blanco
 def create_svg_base(width, height, color, text, font_size, text_color, shapes):
@@ -184,12 +166,16 @@ def get_svg_download():
     return sio
 
 
+def select_figure(event):
+    shape_id = event.obj['id']
+    svg_params.update_current_shape(shape_id)
+    print(f'Selected shape ID: {shape_id}')
+
 # Función para agregar figuras al SVG
 def add_figure(event):
     button = event.obj
     factory = figures.FigureFactory()
     type_figure = ""
-
 
     # Crear la figura según el botón pulsado
     if button.icon == "square":
@@ -212,6 +198,8 @@ def add_figure(event):
     svg_params.additional_shapes.append(figure)
     svg_params.param.trigger('additional_shapes')
 
+    svg_params.update_current_shape(id_figure)
+
 
 # Crear menu de botones para agregar figuras
 def create_button_panel(buttons):
@@ -228,33 +216,9 @@ def create_button_panel(buttons):
     # Returnar panel con botones
     return pn.Row(*button_widgets)
 
-
 # ========================================================================================
 # Configuraciones elementos de interfaz
 # ========================================================================================
-
-# pruebas______________________________
-
-def select_svg_element_by_id(element_id):
-    try:
-        element = document.getElementById(element_id)
-        if element is not None:
-            console.log(f"Element with id {element_id} selected.")
-        else:
-            console.error(f"No element found with id {element_id}.")
-    except Exception as e:
-        console.error(f"Error selecting element: {e}")
-
-select_button = pn.widgets.Button(name='Select SVG Element', button_type='primary')
-def on_select_click(event):
-    #select_svg_element_by_id("app")
-    #select_svg_element_by_id("f_0")
-    select_svg_element_by_id("drawing-svg")
-
-select_button.on_click(on_select_click)
-
-# pruebas______________________________
-
 
 # Boton de descarga del SVG
 download_svg = pn.widgets.FileDownload(
@@ -284,7 +248,6 @@ text_tab = pn.Column(
 # Tab con las configuraciones de las figuras
 figures_tab = pn.Column(
     create_button_panel(button_data),
-    select_button, # prueba
     name='Figure')
 
 # Tab con las configuraciones de los pictogramas
