@@ -38,3 +38,41 @@ document.addEventListener('DOMContentLoaded', function () {
     loading.showModal();
 });
 
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     //const element = document.getElementById('app');
+//     const element = document.getElementById('drawing-svg');
+//
+//
+//     if(element){
+//         alert("hola")
+//     }
+// });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const targetNode = document.body; // Observar cambios en todo el body
+    const config = {childList: true, subtree: true}; // Configuración para observar todos los cambios en los hijos y subárboles
+
+    const callback = function (mutationsList, observer) {
+        for (let mutation of mutationsList) {
+            if (mutation.type === 'childList') {
+                // Verificar si el elemento deseado está presente
+                const element = document.getElementById('drawing-svg');
+                if (element) {
+                    alert("Hola");
+                    observer.disconnect(); // Dejar de observar después de encontrar el elemento
+                    break;
+                }
+            }
+        }
+    };
+
+    const observer = new MutationObserver(callback);
+    observer.observe(targetNode, config);
+});
+
+
+const element = document.getElementById('drawing-svg');
+if (element) {
+    alert("Hola");
+}

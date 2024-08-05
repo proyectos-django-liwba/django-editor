@@ -1,4 +1,8 @@
+# ...................................................................
+# Clases para agregar figuras y texto al SVG
+# ...................................................................
 from abc import ABC, abstractmethod
+
 
 class FigureFactory:
     @staticmethod
@@ -16,6 +20,9 @@ class FigureFactory:
 
 
 class FigureInterface(ABC):
+    def __init__(self):
+        self.selected = False
+
     @abstractmethod
     def update(self, **kwargs):
         pass
@@ -24,9 +31,18 @@ class FigureInterface(ABC):
     def get_svg(self):
         pass
 
+    def toggle_selection(self):
+        self.selected = not self.selected
+
+    def get_selection_style(self):
+        return 'stroke="blue" stroke-width="5"' if self.selected else ''
+
 
 class FigureRect(FigureInterface):
-    def __init__(self, width=150, height=150, x=10, y=10, rx=20, ry=20, fill='red', stroke='green', stroke_width=3, opacity=0.5):
+    def __init__(self, id="f_", width=100, height=100, x=10, y=10, rx=0, ry=0, fill='none', stroke='black',
+                 stroke_width=1, opacity=1):
+        super().__init__()
+        self.id = id
         self.width = width
         self.height = height
         self.x = x
@@ -44,11 +60,13 @@ class FigureRect(FigureInterface):
                 setattr(self, key, value)
 
     def get_svg(self):
-        return f'<rect width="{self.width}" height="{self.height}" x="{self.x}" y="{self.y}" rx="{self.rx}" ry="{self.ry}" fill="{self.fill}" stroke="{self.stroke}" stroke-width="{self.stroke_width}" opacity="{self.opacity}" />'
+        return f'<rect id="{self.id}" width="{self.width}" height="{self.height}" x="{self.x}" y="{self.y}" rx="{self.rx}" ry="{self.ry}" fill="{self.fill}" stroke="{self.stroke}" stroke-width="{self.stroke_width}" opacity="{self.opacity}" />'
 
 
 class FigureCircle(FigureInterface):
-    def __init__(self, r=45, cx=50, cy=50, fill='red', stroke='green', stroke_width=3, opacity=0.5):
+    def __init__(self, id="f_", r=45, cx=50, cy=50, fill='none', stroke='black', stroke_width=1, opacity=1):
+        super().__init__()
+        self.id = id
         self.r = r
         self.cx = cx
         self.cy = cy
@@ -63,11 +81,13 @@ class FigureCircle(FigureInterface):
                 setattr(self, key, value)
 
     def get_svg(self):
-        return f'<circle r="{self.r}" cx="{self.cx}" cy="{self.cy}" fill="{self.fill}" stroke="{self.stroke}" stroke-width="{self.stroke_width}" opacity="{self.opacity}" />'
+        return f'<circle id="{self.id}" r="{self.r}" cx="{self.cx}" cy="{self.cy}" fill="{self.fill}" stroke="{self.stroke}" stroke-width="{self.stroke_width}" opacity="{self.opacity}" />'
 
 
 class FigureTriangle(FigureInterface):
-    def __init__(self, points="100,10 150,190 50,190", fill='red', stroke='green', stroke_width=3, opacity=0.5):
+    def __init__(self, id="f_", points="100,10 150,100 50,100", fill='none', stroke='black', stroke_width=1, opacity=1):
+        super().__init__()
+        self.id = id
         self.points = points
         self.fill = fill
         self.stroke = stroke
@@ -80,11 +100,13 @@ class FigureTriangle(FigureInterface):
                 setattr(self, key, value)
 
     def get_svg(self):
-        return f'<polygon points="{self.points}" fill="{self.fill}" stroke="{self.stroke}" stroke-width="{self.stroke_width}" opacity="{self.opacity}" />'
+        return f'<polygon id="{self.id}" points="{self.points}" fill="{self.fill}" stroke="{self.stroke}" stroke-width="{self.stroke_width}" opacity="{self.opacity}" />'
 
 
 class FigureEllipse(FigureInterface):
-    def __init__(self, rx=100, ry=50, cx=120, cy=80, fill='red', stroke='green', stroke_width=3, opacity=0.5):
+    def __init__(self, id="f_", rx=60, ry=30, cx=100, cy=50, fill='none', stroke='black', stroke_width=1, opacity=1):
+        super().__init__()
+        self.id = id
         self.rx = rx
         self.ry = ry
         self.cx = cx
@@ -100,4 +122,5 @@ class FigureEllipse(FigureInterface):
                 setattr(self, key, value)
 
     def get_svg(self):
-        return f'<ellipse rx="{self.rx}" ry="{self.ry}" cx="{self.cx}" cy="{self.cy}" fill="{self.fill}" stroke="{self.stroke}" stroke-width="{self.stroke_width}" opacity="{self.opacity}" />'
+        return f'<ellipse id="{self.id}" rx="{self.rx}" ry="{self.ry}" cx="{self.cx}" cy="{self.cy}" fill="{self.fill}" stroke="{self.stroke}" stroke-width="{self.stroke_width}" opacity="{self.opacity}" />'
+
