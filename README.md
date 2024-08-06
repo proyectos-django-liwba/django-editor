@@ -347,6 +347,14 @@ dificultan personalizar los elementos. Ademas de ser una versión de panel muy a
     <circle r="45" cx="50" cy="50" fill="red" stroke="green" stroke-width="3" opacity="0.5" />
     <ellipse  rx="100" ry="50" cx="120" cy="80" fill="red" stroke="green" stroke-width="3" opacity="0.5" />
     
+    #  Nota!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    #  opcion para selecionar una figura, crear un boton cada que agrego una figura
+    # luego agregar los botones al layout
+    # debe funcionar de forma dinamica ya que al inicio no hay figuras
+    # es decir cada que agrego una figura se crea un boton con ese boton
+    # agrego la figura a current_shapes el boton tiene el nombre del id de la figura
+    # cuando doy click en el boton cargo un subpael con las entradas de la figura
+
     
     def select_svg_element_by_id(element_id):
     try:

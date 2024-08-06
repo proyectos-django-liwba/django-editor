@@ -6,7 +6,7 @@ packages = [
     "numpy",
 ]
 [[fetch]]
-files = ['figures.py']
+files = ['figures.py', 'utils.py']
 from = '/static/panelApp/pyscript/'
 
 #packages = [
