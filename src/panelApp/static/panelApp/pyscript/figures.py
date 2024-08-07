@@ -40,7 +40,7 @@ class FigureInterface(ABC):
 
 
 class FigureRect(FigureInterface):
-    def __init__(self, id="f_", width=100, height=100, x=10, y=10, rx=0, ry=0, fill='none', stroke='black',
+    def __init__(self, id="f_", width=100, height=100, x=0, y=0, rx=0, ry=0, fill='none', stroke='black',
                  stroke_width=1, opacity=1):
         super().__init__()
         self.id = id

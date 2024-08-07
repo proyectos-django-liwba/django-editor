@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83030778-4066-4f37-8f2c-c0f7f0da3dbe" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/djangoEditor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/djangoEditor.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/panelApp/static/panelApp/pyscript/figures.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/panelApp/static/panelApp/pyscript/figures.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/panelApp/static/panelApp/pyscript/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/panelApp/static/panelApp/pyscript/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +153,8 @@
       <workItem from="1722636627120" duration="297000" />
       <workItem from="1722637698359" duration="4918000" />
       <workItem from="1722866680505" duration="34391000" />
-      <workItem from="1722953415363" duration="1057000" />
+      <workItem from="1722953415363" duration="13698000" />
+      <workItem from="1722977170049" duration="12368000" />
     </task>
     <servers />
   </component>

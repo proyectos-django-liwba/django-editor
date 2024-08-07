@@ -373,4 +373,9 @@ def on_select_click(event):
     select_svg_element_by_id("f_0")
 
 select_button.on_click(on_select_click)
+
+
+
+# no se aplica color de fondo
+# 
 ```
