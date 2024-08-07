@@ -374,8 +374,26 @@ def on_select_click(event):
 
 select_button.on_click(on_select_click)
 
-
-
-# no se aplica color de fondo
+# agregar id
+# problema atributos -
+#
+#
+#
 # 
+```
+
+```
+La propiedad sizing_mode en Panel controla cómo se dimensiona un componente en función del espacio disponible en su contenedor. El valor stretch_width es uno de los modos de dimensionamiento disponibles. Aquí está una explicación detallada:
+
+sizing_mode="stretch_width"
+Cuando se establece sizing_mode="stretch_width", el componente ajusta su ancho para llenar todo el espacio horizontal disponible en su contenedor padre, mientras que la altura se mantiene fija o determinada por el contenido del componente.
+
+Modos de dimensionamiento disponibles:
+fixed: El componente mantiene un tamaño fijo en ambos ejes.
+stretch_width: El componente se expande para llenar todo el ancho disponible, pero su altura se mantiene fija.
+stretch_height: El componente se expande para llenar toda la altura disponible, pero su ancho se mantiene fijo.
+stretch_both: El componente se expande para llenar tanto el ancho como la altura disponibles.
+scale_width: El componente escala su ancho proporcionalmente al espacio disponible, manteniendo una relación de aspecto fija.
+scale_height: El componente escala su altura proporcionalmente al espacio disponible, manteniendo una relación de aspecto fija.
+scale_both: El componente escala tanto su ancho como su altura proporcionalmente al espacio disponible, manteniendo una relación de aspecto fija.
 ```

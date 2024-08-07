@@ -1,7 +1,8 @@
 # dependencias
 import xml.etree.ElementTree as ET
 from io import StringIO
-
+from js import document, console
+from panel.reactive import ReactiveHTML
 import panel as pn
 import param
 
@@ -87,6 +88,15 @@ class SVGParams(param.Parameterized):
         for f in self.additional_shapes:
             print(f.get_svg())
 
+# import param
+#from panel.reactive import ReactiveHTML
+class ReactiveFigures(ReactiveHTML):
+    index = param.Integer(default=0)
+
+    _template = '<img id="slideshow_el" src="https://picsum.photos/800/300?image=${index}" onclick="${_img_click}"></img>'
+
+    def _img_click(self, event):
+        self.index += 1
 
 # ========================================================================================
 # Main
@@ -113,7 +123,7 @@ text_color_picker = pn.widgets.ColorPicker(name='Text color', value='#000000')
 file_input = pn.widgets.FileInput(accept='.svg', multiple=False, width=240)
 
 # Boton para limpiar el contenido del SVG
-clear_svg_button = pn.widgets.Button( name='Clear SVG', icon='trash', button_type='danger', height=30, width=240)
+clear_svg_button = pn.widgets.Button(name='Clear SVG', icon='trash', button_type='danger', height=30, width=240)
 
 
 # ========================================================================================
@@ -122,6 +132,17 @@ clear_svg_button = pn.widgets.Button( name='Clear SVG', icon='trash', button_typ
 
 # Elementos adicionales del SVG
 svg_params = SVGParams()
+
+
+def select_svg_element_by_id(element_id):
+    try:
+        element = document.getElementById(element_id)
+        if element is not None:
+            console.log(f"Element with id {element_id} selected.")
+        else:
+            console.error(f"No element found with id {element_id}.")
+    except Exception as e:
+        console.error(f"Error selecting element: {e}")
 
 
 # ========================================================================================
@@ -157,23 +178,16 @@ def wrap_text(text, max_width, font_size, text_color):
     return text_elements
 
 
-# Función para añadir figuras al contenido SVG cargado
-# def add_shapes_to_svg(svg_content, shapes):
-#     figures_svg = "".join([figure.get_svg() for figure in shapes])
-#     svg_content = svg_content.replace("</svg>", f"{figures_svg}\n</svg>")
-#     return svg_content
-
 # SVG base en blanco
 def create_svg_base(width, height, color, text, font_size, text_color, shapes, is_load_svg):
 
     # Ajustar las lineas del texto al ancho del SVG
     wrapped_text = wrap_text(text, width - 10, font_size, text_color)
 
-    # Agregar una figura de fondo al SVG
-    if not is_load_svg:
+    if not is_load_svg and (len(shapes) == 0 or shapes[0].id != 'background'):
         factory = figures.FigureFactory()
-        figure_layout = factory.create_element("rect", id="f_0", x=0, y=0, width=width, height=height, fill=color, stroke='none', stroke_width=0)
-        shapes.insert(0, figure_layout)
+        background = factory.create_element("rect", id="background", x=0, y=0, width=width, height=height, fill=color, stroke='none', stroke_width=0)
+        shapes.insert(0, background)
 
     # Crear un string con las figuras adicionales
     figures_svg = svg_params.get_all_shapes()
@@ -195,6 +209,7 @@ def create_svg_base(width, height, color, text, font_size, text_color, shapes, i
     text_input.param.value,
     text_size.param.value,
     text_color_picker.param.value,
+
     svg_params.param.additional_shapes,
     svg_params.param.is_load_svg,
 )
@@ -202,12 +217,12 @@ def create_panel(width, height, color, text, font_size, text_color, shapes, is_l
 
     svg_params.svg_content = create_svg_base(width, height, color, text, font_size, text_color, shapes, is_load_svg)
 
-    return pn.pane.SVG(
-        svg_params.svg_content,
-        width=width,
-        height=height,
-    )
-    #return pn.pane.HTML(svg_content, width=width, height=height)
+    # return pn.pane.SVG(
+    #     svg_params.svg_content,
+    #     width=width,
+    #     height=height,
+    # )
+    return pn.pane.HTML(svg_params.svg_content, width=width, height=height, sanitize_html=False)
 
 
 # Función para descargar el SVG
@@ -223,7 +238,6 @@ def select_figure(event):
     shape_id = event.obj['id']
     svg_params.update_current_shape(shape_id)
     print(f'Selected shape ID: {shape_id}')
-
 
 # Función para agregar figuras al SVG
 def add_figure(event):
@@ -268,29 +282,39 @@ def create_button_panel(buttons):
     # Returnar panel con botones
     return pn.Row(*button_widgets)
 
-
+#@pn.depends(file_input.param.value, watch=True)
 def handle_file_upload(event):
+    color_picker.value = '#FFFFFF'
     file_data = event.new
-    file_bytes = file_input.value
-    # Limpiar el contenido anterior
-    svg_params.clear_svg()
-    # No agregar figura de fondo
-    svg_params.is_load_svg = True
-    # reconstruir el SVG con el contenido del archivo
-    svg_params.parse_svg_content(file_bytes.decode('utf-8'))
-    # forzar actualización del parámetro
-    svg_params.param.trigger('is_load_svg')
-    svg_params.param.trigger('additional_shapes')
+
+    if file_data is not None:
+        try:
+            # Limpiar el contenido anterior
+            svg_params.clear_svg()
+            # No agregar figura de fondo
+            svg_params.is_load_svg = True
+            # reconstruir el SVG con el contenido del archivo
+            svg_params.parse_svg_content(file_data.decode('utf-8'))
+            # forzar actualización del parámetro
+            svg_params.param.trigger('is_load_svg')
+            svg_params.param.trigger('additional_shapes')
+
+        except Exception as e:
+            print(f"Error al decodificar el archivo: {e}")
+    else:
+        print("Archivo subido es None")
 
 # Funcion para actualizar el color de fondo del SVG
 def update_background_color(event):
-    svg_params.additional_shapes[0].update(fill=color_picker.value)
+    if len(svg_params.additional_shapes) > 0:
+        svg_params.additional_shapes[0].update(fill=color_picker.value)
 
-
-
-    # Conectar la función de manejo de archivos al widget
+# Conectar la función de manejo de archivos al widget
 file_input.param.watch(handle_file_upload, 'value')
 color_picker.param.watch(update_background_color, 'value')
+
+
+
 
 # ========================================================================================
 # Configuraciones elementos de interfaz
@@ -308,7 +332,6 @@ download_svg = pn.widgets.FileDownload(
     width=240,
 )
 
-
 # Tab con las configuraciones del panel
 settings_tab = pn.Column(
     width_slider,
@@ -322,11 +345,14 @@ settings_tab = pn.Column(
 
 def clear_svg_and_file_input(event):
     svg_params.clear_svg()
+    file_input.value = None
     settings_tab[4] = pn.widgets.FileInput(accept='.svg', multiple=False, width=240)
+    settings_tab[4].param.watch(handle_file_upload, 'value')
+    color_picker.value = "#ffffff"
+
 
 # Evento para limpiar el contenido del SVG
 clear_svg_button.on_click(clear_svg_and_file_input)
-
 
 # Tab con las configuraciones del texto
 text_tab = pn.Column(
@@ -359,6 +385,11 @@ sidebar = pn.Tabs(
 # ========================================================================================
 # Cargar el contenido en el HTML
 # ========================================================================================
+
+x = pn.Row(
+    ReactiveFigures(width=800, height=300)
+)
+x.servable(target='app')
 
 sidebar.servable(target='sidebar-panel')
 panel.servable(target='drawing-panel')
