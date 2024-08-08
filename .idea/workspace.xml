@@ -6,11 +6,33 @@
   <component name="ChangeListManager">
     <list default="true" id="83030778-4066-4f37-8f2c-c0f7f0da3dbe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/panelApp/static/panelApp/pyscript/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/panelApp/static/panelApp/pyscript/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,16 +67,35 @@
     &quot;Django Server.djangoEditor.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
     &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;cambio-estructura&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/liwbh/Documentos/GitHub/djangoEditor/src/draw/static/draw&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/liwbh/opt/pycharm/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/draw/static/draw" />
+      <recent name="$PROJECT_DIR$/panelApp/static/pyscript/core" />
+      <recent name="$PROJECT_DIR$/panelApp/pyscript" />
+      <recent name="$PROJECT_DIR$/templates/_partials" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/panelApp/static/panelApp" />
+      <recent name="$PROJECT_DIR$/src/draw/static/draw" />
+      <recent name="$PROJECT_DIR$/src/draw/static" />
+      <recent name="$PROJECT_DIR$/src/draw" />
+      <recent name="$PROJECT_DIR$/src/presentation/templates/presentation" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="djangoEditor" type="Python.DjangoServer" factoryName="Django server">
       <module name="djangoEditor" />
@@ -102,6 +143,19 @@
       <workItem from="1721952028928" duration="15221000" />
       <workItem from="1722261852795" duration="419000" />
       <workItem from="1722264502946" duration="1081000" />
+      <workItem from="1722293394700" duration="14278000" />
+      <workItem from="1722347318217" duration="47710000" />
+      <workItem from="1722434046589" duration="51784000" />
+      <workItem from="1722518095112" duration="35971000" />
+      <workItem from="1722566034824" duration="4780000" />
+      <workItem from="1722636627120" duration="297000" />
+      <workItem from="1722637698359" duration="4918000" />
+      <workItem from="1722866680505" duration="34391000" />
+      <workItem from="1722953415363" duration="13698000" />
+      <workItem from="1722977170049" duration="13451000" />
+      <workItem from="1723038814850" duration="23508000" />
+      <workItem from="1723072596123" duration="1951000" />
+      <workItem from="1723125526766" duration="971000" />
     </task>
     <servers />
   </component>

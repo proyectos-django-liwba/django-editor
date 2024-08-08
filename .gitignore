@@ -8,7 +8,6 @@
 # Icon must end with two \r
 Icon
 
-
 # Thumbnails
 ._*
 _build/
@@ -93,14 +92,10 @@ demo/db.sqlite3
 demo/temp/
 venv/
 .idea/
-djgentelella/static/vendors/
+
 
 #ignore vscode settins
 .vscode/
-demo/media
-djgentelella/static/djgentelella.vendors.header.min.js
-djgentelella/static/djgentelella.vendors.min.css
-djgentelella/static/djgentelella.vendors.min.js
 
 #node modules
 node_modules/
