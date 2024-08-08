@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83030778-4066-4f37-8f2c-c0f7f0da3dbe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/panelApp/static/panelApp/pyscript/reactiveHtml.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/panelApp/static/panelApp/pyscript/figures.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/panelApp/static/panelApp/pyscript/figures.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/panelApp/static/panelApp/pyscript/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/panelApp/static/panelApp/pyscript/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/panelApp/templates/panelApp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/panelApp/templates/panelApp/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +153,9 @@
       <workItem from="1722866680505" duration="34391000" />
       <workItem from="1722953415363" duration="13698000" />
       <workItem from="1722977170049" duration="13451000" />
-      <workItem from="1723038814850" duration="19648000" />
+      <workItem from="1723038814850" duration="23508000" />
+      <workItem from="1723072596123" duration="1951000" />
+      <workItem from="1723125526766" duration="971000" />
     </task>
     <servers />
   </component>

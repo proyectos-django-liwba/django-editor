@@ -2,7 +2,7 @@
 import xml.etree.ElementTree as ET
 from io import StringIO
 from js import document, console
-from panel.reactive import ReactiveHTML
+#from panel.reactive import ReactiveHTML
 import panel as pn
 import param
 
@@ -89,14 +89,22 @@ class SVGParams(param.Parameterized):
             print(f.get_svg())
 
 # import param
-#from panel.reactive import ReactiveHTML
-class ReactiveFigures(ReactiveHTML):
-    index = param.Integer(default=0)
+# from panel.reactive import ReactiveHTML
+# class ReactiveFigures(ReactiveHTML):
+#     index = param.Integer(default=0)
+#
+#     _template = '<img id="slideshow_el" src="https://picsum.photos/800/300?image=${index}" onclick="${_img_click}"></img>'
+#
+#     def _img_click(self, event):
+#         self.index += 1
 
-    _template = '<img id="slideshow_el" src="https://picsum.photos/800/300?image=${index}" onclick="${_img_click}"></img>'
-
-    def _img_click(self, event):
-        self.index += 1
+# class ReactiveFigures(ReactiveHTML):
+#     _template = """<div id="svg-container" onclick="${_prueba}">
+#                         <p>SVG content:</p>
+#                   </div>
+#                 """
+#     def _prueba(self, event):
+#         print("Prueba")
 
 # ========================================================================================
 # Main
@@ -177,7 +185,6 @@ def wrap_text(text, max_width, font_size, text_color):
 
     return text_elements
 
-
 # SVG base en blanco
 def create_svg_base(width, height, color, text, font_size, text_color, shapes, is_load_svg):
 
@@ -191,7 +198,6 @@ def create_svg_base(width, height, color, text, font_size, text_color, shapes, i
 
     # Crear un string con las figuras adicionales
     figures_svg = svg_params.get_all_shapes()
-
 
     return f'''<svg id="drawing-svg" width="{width}" height="{height}" xmlns="http://www.w3.org/2000/svg">
                      {figures_svg}
@@ -216,13 +222,13 @@ def create_svg_base(width, height, color, text, font_size, text_color, shapes, i
 def create_panel(width, height, color, text, font_size, text_color, shapes, is_load_svg,):
 
     svg_params.svg_content = create_svg_base(width, height, color, text, font_size, text_color, shapes, is_load_svg)
-
+    svg_content = create_svg_base(width, height, color, text, font_size, text_color, shapes, is_load_svg)
     # return pn.pane.SVG(
     #     svg_params.svg_content,
     #     width=width,
     #     height=height,
     # )
-    return pn.pane.HTML(svg_params.svg_content, width=width, height=height, sanitize_html=False)
+    return pn.pane.HTML(svg_params.svg_content, width=width, height=height)
 
 
 # Función para descargar el SVG
@@ -369,8 +375,9 @@ figures_tab = pn.Column(
 
 # Tab con las configuraciones de los pictogramas
 pictogram_tab = pn.Column(name='Pictogram')
-
+#xd = ReactiveFigures()
 # Panel principal con el SVG
+#panel = pn.Column(xd, styles=utils.styles_panel)
 panel = pn.Column(create_panel, styles=utils.styles_panel)
 
 # Panel con la barra lateral "Sidebar contiene los tabs"
@@ -386,10 +393,11 @@ sidebar = pn.Tabs(
 # Cargar el contenido en el HTML
 # ========================================================================================
 
-x = pn.Row(
-    ReactiveFigures(width=800, height=300)
-)
-x.servable(target='app')
+# x = pn.Row(
+#     ReactiveFigures(width=800, height=300)
+# )
+# x.servable(target='app')
 
 sidebar.servable(target='sidebar-panel')
 panel.servable(target='drawing-panel')
+
