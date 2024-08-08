@@ -341,12 +341,40 @@ dificultan personalizar los elementos. Ademas de ser una versión de panel muy a
 - ["Column"](https://panel.holoviz.org/reference/layouts/Column.html)
 - ["Pane HTML"](https://panel.holoviz.org/reference/panes/HTML.html)
 
+
+##### Estructura de referencia SVG
 ```
     <polygon points="100,10 150,190 50,190" fill="red" stroke="green" stroke-width="3" opacity="0.5" />
     <rect width="150" height="150" x="10" y="10" rx="20" ry="20" fill="red" stroke="green" stroke-width="3" opacity="0.5" />
     <circle r="45" cx="50" cy="50" fill="red" stroke="green" stroke-width="3" opacity="0.5" />
     <ellipse  rx="100" ry="50" cx="120" cy="80" fill="red" stroke="green" stroke-width="3" opacity="0.5" />
-    
+```
+
+#### Modos de dimensionamiento disponibles:
+La propiedad sizing_mode en Panel controla cómo se dimensiona un componente en función del espacio disponible en su contenedor. El valor stretch_width es uno de los modos de dimensionamiento disponibles. Aquí está una explicación detallada:
+
+- Atributo: sizing_mode
+
+Cuando se establece sizing_mode="stretch_width", el componente ajusta su ancho para llenar todo el espacio horizontal disponible en su contenedor padre, mientras que la altura se mantiene fija o determinada por el contenido del componente.
+
+```
+    sizing_mode="stretch_width"
+```
+- Valores del atributo
+```
+    fixed: El componente mantiene un tamaño fijo en ambos ejes.
+    stretch_width: El componente se expande para llenar todo el ancho disponible, pero su altura se mantiene fija.
+    stretch_height: El componente se expande para llenar toda la altura disponible, pero su ancho se mantiene fijo.
+    stretch_both: El componente se expande para llenar tanto el ancho como la altura disponibles.
+    scale_width: El componente escala su ancho proporcionalmente al espacio disponible, manteniendo una relación de aspecto fija.
+    scale_height: El componente escala su altura proporcionalmente al espacio disponible, manteniendo una relación de aspecto fija.
+    scale_both: El componente escala tanto su ancho como su altura proporcionalmente al espacio disponible, manteniendo una relación de aspecto fija.
+```
+
+##### Notas
+
+
+```
     #  Nota!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     #  opcion para selecionar una figura, crear un boton cada que agrego una figura
     # luego agregar los botones al layout
@@ -376,29 +404,7 @@ select_button.on_click(on_select_click)
 
 # agregar id
 # problema atributos -
-#
-#
-#
-# 
 ```
 
-#### Modos de dimensionamiento disponibles:
-La propiedad sizing_mode en Panel controla cómo se dimensiona un componente en función del espacio disponible en su contenedor. El valor stretch_width es uno de los modos de dimensionamiento disponibles. Aquí está una explicación detallada:
-
-- sizing_mode
-
-Cuando se establece sizing_mode="stretch_width", el componente ajusta su ancho para llenar todo el espacio horizontal disponible en su contenedor padre, mientras que la altura se mantiene fija o determinada por el contenido del componente.
-
-```
-sizing_mode="stretch_width"
-```
-
-```
-fixed: El componente mantiene un tamaño fijo en ambos ejes.
-stretch_width: El componente se expande para llenar todo el ancho disponible, pero su altura se mantiene fija.
-stretch_height: El componente se expande para llenar toda la altura disponible, pero su ancho se mantiene fijo.
-stretch_both: El componente se expande para llenar tanto el ancho como la altura disponibles.
-scale_width: El componente escala su ancho proporcionalmente al espacio disponible, manteniendo una relación de aspecto fija.
-scale_height: El componente escala su altura proporcionalmente al espacio disponible, manteniendo una relación de aspecto fija.
-scale_both: El componente escala tanto su ancho como su altura proporcionalmente al espacio disponible, manteniendo una relación de aspecto fija.
-```
+### Tareas
+- ["Requerimientos"](https://docs.google.com/document/d/1RoIJFu4qIopodKXElNfv4VI9hpukzmKl30EFcR3zxgI/edit)
