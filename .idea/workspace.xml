@@ -7,6 +7,7 @@
     <list default="true" id="83030778-4066-4f37-8f2c-c0f7f0da3dbe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/panelApp/static/panelApp/pyscript/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/panelApp/static/panelApp/pyscript/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/panelApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/panelApp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +70,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
     &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;cambio-estructura&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/liwbh/Documentos/GitHub/djangoEditor/src/draw/static/draw&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -155,7 +156,14 @@
       <workItem from="1722977170049" duration="13451000" />
       <workItem from="1723038814850" duration="23508000" />
       <workItem from="1723072596123" duration="1951000" />
-      <workItem from="1723125526766" duration="971000" />
+      <workItem from="1723125526766" duration="13104000" />
+      <workItem from="1723158330711" duration="6803000" />
+      <workItem from="1723167720681" duration="1762000" />
+      <workItem from="1723179678152" duration="516000" />
+      <workItem from="1723210353986" duration="2509000" />
+      <workItem from="1723215289837" duration="2078000" />
+      <workItem from="1723231167042" duration="4092000" />
+      <workItem from="1723237687594" duration="3173000" />
     </task>
     <servers />
   </component>
